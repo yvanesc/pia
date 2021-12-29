@@ -17,8 +17,6 @@ window = Tk()
 window.title("ChatBot 0.1 PIA")
 
 window.wm_geometry("%dx%d+%d+%d" % (sizex, sizey, posx, posy))
-#window.geometry('700x400')
-#myframe=Frame(window,width=400,height=300,bd=2,relief=GROOVE)
 
 lbl01 = Label(window, text=random.choice(pia_face), font=("Arial Bold", 10), bg="black", fg="green")
 lbl01.grid(column=0, row=0)
@@ -27,15 +25,7 @@ lbl01.grid(column=0, row=0)
 value = int(sizex/50)
 for i in range(value):
     pia_hist.append(Label(window,text="..........yes.............."+str(i), bg="black", fg="green"))
-    pia_hist[i].grid(column=0, row=i+1)    #place(x=10,y=10+(30*i))
-    #lbl02.grid(column=0, row=1)   
-    #Button(myframe,text="Accept").place(x=70,y=10+(30*i))
-print(i)
-# lbl02 = Label(window, text="", font=("Arial Bold", 10))
-# lbl02.grid(column=0, row=1)
-
-# lbl03 = Label(window, text="........................", font=("Arial Bold", 10), bg="black", fg="green")
-# lbl03.grid(column=0, row=2)
+    pia_hist[i].grid(column=0, row=i+1)    
 
 #text.configure(state='normal')
 #text.insert('end', 'Some Text')
@@ -45,23 +35,6 @@ for j in range(value):
     msg_hist.append(Entry(window,width=80, state='disabled'))
     msg_hist[j].grid(column=1, row=j+1) 
 
-# txt01 = Entry(window,width=80, state='disabled')
-# txt01.grid(column=1, row=0)
-
-# txt02 = Entry(window,width=80)#, state='disabled')
-# txt02.grid(column=1, row=1)
-
-# txt03 = Entry(window,width=80)
-# txt03.grid(column=1, row=2)
-
-# txt04 = Entry(window,width=80)
-# txt04.grid(column=1, row=3)
-
-# txt05 = Entry(window,width=80)
-# txt05.grid(column=1, row=4)
-
-# txt06 = Entry(window,width=80)
-# txt06.grid(column=1, row=5)
 msg2pia = Entry(window,width=80)
 msg2pia.grid(column=1, row=j+1)
 
