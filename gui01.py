@@ -37,18 +37,22 @@ for j in range(value):
 
 msg2pia = Entry(window,width=80)
 msg2pia.grid(column=1, row=j+1)
-
-# loop for label
-txtLabels = ["H1","H2"]
-for txtLabel in enumerate(txtLabels):
-    print(txtLabel[0]) #s, txtLabel)
-    print("txt" + str(txtLabel[0]))
     
 def clicked():
     global mode
-    res =  txt03.get()#"Welcome to " + txt03.get()
-    #lbl01.configure(text= "You")
-    #txt02 = Entry(state='normal')
+
+    # res =  msg2pia.get()#"Welcome to " + txt03.get()
+    # last_hist = j
+    # for jj in range(value):
+    #     msg_hist[jj].Entry(state='normal')
+    #     msg_hist[jj].delete(0,'end')
+    #     if jj == j:
+
+
+    #     #msg_hist.append(Entry(window,width=80, state='normal'))
+
+    #     msg_hist[j].grid(column=1, row=j+1) 
+
     txt02.delete(0,'end')
     txt02.insert(END,res)
     txt03.delete(0,'end')
