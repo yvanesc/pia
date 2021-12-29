@@ -12,6 +12,8 @@ posy  = 0
 pia_face = [":-)", ";-)", "8-)", ":-S", ":-D"]
 msg_hist = []
 pia_hist = []
+greetings =["Hello","Hi","Good Morning"]
+thanks =["Fine","Thank you","Great"]
 window = Tk() 
 
 window.title("ChatBot 0.1 PIA")
@@ -37,47 +39,60 @@ for j in range(value):
 
 msg2pia = Entry(window,width=80)
 msg2pia.grid(column=1, row=j+1)
-    
+msg2pia.focus_set()
 def clicked():
     global mode
 
-    # res =  msg2pia.get()#"Welcome to " + txt03.get()
+    # create history msg2pia
+    res =  msg2pia.get()
     # last_hist = j
-    # for jj in range(value):
-    #     msg_hist[jj].Entry(state='normal')
-    #     msg_hist[jj].delete(0,'end')
-    #     if jj == j:
+    for jj in range(value):
+        msg_hist[jj].configure(state='normal')
+        msg_hist[jj].delete(0,'end')
+        if jj == j:
+            msg_hist[jj].insert(END,msg2pia.get())
+        else:
+            msg_hist[jj].insert(END,msg_hist[jj+1].get())
+            msg_hist[jj].configure(state='disabled')
 
+    # create history pia
 
     #     #msg_hist.append(Entry(window,width=80, state='normal'))
 
     #     msg_hist[j].grid(column=1, row=j+1) 
 
-    txt02.delete(0,'end')
-    txt02.insert(END,res)
-    txt03.delete(0,'end')
+    # txt02.delete(0,'end')
+    # txt02.insert(END,res)
+    # txt03.delete(0,'end')
     #remove = string.whitespace
     res = res.strip()
     #greetings
     if res.lower() == "hello":
-        lbl03.configure(text= "Hello")
+        pia_hist[i].configure(text= random.choice(greetings)) #"Hello")
     # Training mode
+    elif res.lower() == "how are you ?":
+        pia_hist[i].configure(text= random.choice(thanks)) #"Hello")
     elif res == "!?" or res =="?!":
         if mode == 0:
-            lbl03.configure(text= "Training mode")           
+            pia_hist[i].configure(text= "Training mode")           
             mode = 1
         else:
-            lbl03.configure(text= "...")
+            pia_hist[i].configure(text= "...")
             mode = 0
+    for ii in range(value):
+    #pia_hist[ii].delete(0,'end')
+    #.cget("text")
+        pia_hist[ii].configure(text =  pia_hist[ii + 1].cget("text"))
     # goodbye
     # Thanks
     # noanswer
     
     else:
-        lbl03.configure(text= "...")
-    
+        pia_hist[i].configure(text= "...")
+    #msg2pia.delete(0,'end')
+    #clicked02()
 def clicked02():
-    txt02.delete(0,'end')
+    msg2pia.delete(0,'end')
     #txt02.select_clear()
 
 btn_send = Button(window, text="Send Msg", command=clicked)
